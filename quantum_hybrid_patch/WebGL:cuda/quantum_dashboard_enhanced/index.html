@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quantum AI Dashboard</title>
+  <script type="module" src="./main_dashboard.js"></script>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 20px;
+    }
+    h1 {
+      color: #00f5ff;
+    }
+    .slider-group {
+      margin: 20px auto;
+      width: 80%%;
+    }
+    .chart-container {
+      width: 600px;
+      margin: 0 auto;
+    }
+    canvas {
+      background: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Quantum AI Dashboard</h1>
+  <div id="output">Initializing...</div>
+
+  <div class="slider-group">
+    <label>Training Samples: <span id="sample-count">1000</span></label>
+    <input type="range" id="sample-slider" min="100" max="5000" value="1000" step="100">
+  </div>
+
+  <div class="chart-container">
+    <canvas id="predictionChart"></canvas>
+  </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[api]
+port = 8080
+
+[ui]
+port = 8081
+
+[mem0]
+api_key_env = "MEM0_API_KEY"
+
+[cerebras]
+api_key_env = "CEREBRAS_API_KEY"
+base_url = "https://api.cerebras.ai/v1"
+model = "gpt-oss-120b"
+
+[openai]
+api_key_env = "OPENAI_API_KEY"
+model = "gpt-4-turbo"
+
+[data_ingestion]
+default_num_keywords = 10

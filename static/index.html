@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Physics Agent</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        h1 { color: #0056b3; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #e9ecef; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], textarea { width: calc(100% - 22px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        #output { background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 15px; border-radius: 4px; white-space: pre-wrap; word-wrap: break-word; min-height: 100px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RAG Physics Agent System</h1>
+
+        <div class="section">
+            <h2>Data Ingestion</h2>
+            <label for="scrapeUrl">Scrape Web Page (URL):</label>
+            <input type="text" id="scrapeUrl" placeholder="e.g., https://mitcommlab.mit.edu/nse/use-the-commkit/">
+            <button onclick="scrapeWebPage()">Scrape</button>
+            <p><i>(Note: Actual scraping will be handled by the Rust backend. This UI element is a placeholder for triggering the action.)</i></p>
+        </div>
+
+        <div class="section">
+            <h2>Agent Discussion</h2>
+            <label for="discussionTopic">Start Physics Roundtable Discussion (Topic):</label>
+            <input type="text" id="discussionTopic" placeholder="e.g., the interpretation of quantum mechanics">
+            <button onclick="startDiscussion()">Start Discussion</button>
+            <p><i>(Note: This will trigger the CrewAI agents via the Rust backend. Output will appear in the console/logs.)</i></p>
+        </div>
+
+        <div class="section">
+            <h2>System Output</h2>
+            <pre id="output">Waiting for system actions...</pre>
+        </div>
+    </div>
+
+    <script>
+        async function scrapeWebPage() {
+            const url = document.getElementById('scrapeUrl').value;
+            if (!url) {
+                alert('Please enter a URL to scrape.');
+                return;
+            }
+            document.getElementById('output').textContent = `Scraping ${url}... (Check backend logs for progress)`;
+            // In a real implementation, this would send a request to your Rust API
+            // For now, it's a UI placeholder.
+            console.log(`Simulating scrape for: ${url}`);
+        }
+
+        async function startDiscussion() {
+            const topic = document.getElementById('discussionTopic').value;
+            if (!topic) {
+                alert('Please enter a discussion topic.');
+                return;
+            }
+            document.getElementById('output').textContent = `Starting discussion on '${topic}'... (Check backend logs for agent activity)`;
+            // In a real implementation, this would send a request to your Rust API
+            // For now, it's a UI placeholder.
+            console.log(`Simulating discussion for topic: ${topic}`);
+        }
+    </script>
+</body>
+</html>
+
